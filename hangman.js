@@ -23,6 +23,10 @@ function hangmanController($scope) {
 
     $scope.letters = makeLetters(alphabet);
 
+    $scope.myFunct = function(keyEvent) {
+        guessLetterFromKey(keyEvent.key);
+    }
+    
     $scope.hint = function() {
         console.log('hint is working');
         Word = $scope.original;
@@ -35,11 +39,30 @@ function hangmanController($scope) {
     console.log($scope.hints);
 
     $scope.try = function(guess) {
+        guessLetterFromButton(guess);
+    };
+    
+    function guessLetterFromButton(guess) {
         guess.chosen = true;
         var found = false;
         _.each($scope.secretWord,
             function(letter) {
                 if (guess.name.toUpperCase() === letter.name.toUpperCase()) {
+                    letter.chosen = true;
+                    found = true;
+                }
+            });
+        if (!found) {
+            $scope.numMisses++;
+        }
+        checkForEndOfGame();
+    };
+    function guessLetterFromKey(guess) {        //made this function bc its 3AM and I'm tired and can't process the custom class here
+        guess.chosen = true;    
+        var found = false;
+        _.each($scope.secretWord,
+            function(letter) {
+                if (guess.toUpperCase() === letter.name.toUpperCase()) {
                     letter.chosen = true;
                     found = true;
                 }

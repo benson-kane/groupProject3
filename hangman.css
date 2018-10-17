@@ -23,3 +23,27 @@ h1 {
   opacity: 0.5;
   color: black;
 }
+
+#guessesLeft {
+    font-weight: bold;
+    color: red;
+}
+
+.buttonCentered {
+    text-align: center;
+}
+
+body {
+	background-color:#e6e6e6;
+}
+
+.socialButton{
+	width:60px;
+	height:60px;
+	border:0;
+	padding: 8px;
+}
+.socialButton:hover {
+  background-color: #ddd;	/* looks cool */
+  color: black;
+}
