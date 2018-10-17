@@ -1,16 +1,14 @@
 body {
   padding: 20px 40px;
   font-family: "Verdana";
+  text-align: center;
+  background-color:#e6e6e6;
 }
 .list-inline li{
     display:inline;
 }
 h1 {
   margin: 20px;
-}
-
-*{
-  text-align: center;
 }
 
 .secretWord {
@@ -33,9 +31,6 @@ h1 {
     text-align: center;
 }
 
-body {
-	background-color:#e6e6e6;
-}
 
 .socialButton{
 	width:60px;
@@ -47,3 +42,25 @@ body {
   background-color: #ddd;	/* looks cool */
   color: black;
 }
+
+#instructions {
+  font-family: palantino;
+  color: grey;
+  text-align: left;
+  font-style: italic;
+  font-size: 14px;
+  list-style-type: square;
+}
+
+ul.a {
+    list-style-type: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+ul.b {
+    list-style-type: square;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+

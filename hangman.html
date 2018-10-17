@@ -56,10 +56,17 @@
     </header>
 
 <body ng-controller="hangmanController" ng-keypress="myFunct($event)">
-    <h1>Classic Hangman game!! Take your best guesses</h1>
-    <h1>
-        <center> The topic is about animal</center>
-    </h1>
+    <h3>
+        <center>Topic: Animal Kingdom</center>
+    </h3>
+    <div class="container" id="instructions">
+      <ul class="a"><li>Instructions:</li></ul>
+        <ul class="b">
+          <li>Guess letters with the keyboard or by clicking the buttons below</li>
+          <li>Past guesses are marked on the buttons</li>
+          <li>Click the hint button for a hint</li>
+        </ul>
+    </div>
     <div class="text-center">
         <button ng-click="hint();" class="buttonCentered">Hints</button>
         <div>
