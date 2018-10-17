@@ -111,7 +111,7 @@ function hangmanController($scope) {
             return acc && letter.chosen;
         }, true);
 
-        if (!$scope.win && $scope.numMisses === $scope.missesAllowed) {
+        if (!$scope.win && $scope.numMisses >= $scope.missesAllowed) {
             $scope.lost = true;
             revealSecret();
         }
