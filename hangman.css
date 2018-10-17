@@ -1,0 +1,25 @@
+body {
+  padding: 20px 40px;
+  font-family: "Verdana";
+}
+.list-inline li{
+    display:inline;
+}
+h1 {
+  margin: 20px;
+}
+
+*{
+  text-align: center;
+}
+
+.secretWord {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 3rem;
+}
+
+.letter-button:disabled {
+  opacity: 0.5;
+  color: black;
+}
