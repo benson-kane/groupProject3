@@ -24,45 +24,78 @@ function hangmanController($scope) {
     $scope.letters = makeLetters(alphabet);
 
     $scope.myFunct = function(keyEvent) {
-        guessLetterFromKey(keyEvent.key);
+        for (var i= 0; i < $scope.letters.length; i++) {
+            if ($scope.letters[i].name == keyEvent.key) {
+                guessLetter($scope.letters[i])
+                break;
+            }
+        }
     }
     
     $scope.hint = function() {
         console.log('hint is working');
-        Word = $scope.original;
+        var Word = $scope.original;
+        console.log('Word: ' + Word);
         console.log(Word);
-        if (Word === 'Canidae')
+        if (Word === 'Canidae')     //TODO: make a Word object with members wordText, hintText
             $scope.hints = 'The biological family that includes domestic dogs, wolves, coyotes, foxes, jackals, dingoes, and many other extant and extinct dog-like mammals.';
         if (Word  === 'Felidae')
             $scope.hints = 'Another name of cats';
-    };
-    console.log($scope.hints);
-
-    $scope.try = function(guess) {
-        guessLetterFromButton(guess);
+        if (Word  === 'Cat')
+            $scope.hints = 'Another name for Felidae';
+        if (Word  === 'Cattle')
+            $scope.hints = 'mass noun referring to animals raised in a grazing environment';  
+        if (Word  === 'Dog')
+            $scope.hints = "Man's best friend";  
+        if (Word  === 'Donkey')
+            $scope.hints = 'Best Supporting Actor in Shrek';  
+        if (Word  === 'Goat')
+            $scope.hints = 'Greatest of All Time';  
+        if (Word  === 'Guinea Pig')
+            $scope.hints = "Tbh I don't really know what this is";
+        if (Word  === 'Horse')
+            $scope.hints = 'Equestrian';  
+        if (Word  === 'Pig')
+            $scope.hints = 'Taylor Swift had a baby ___ as a pet';  
+        if (Word  === 'Rabbit')
+            $scope.hints = 'Probably has really good eyesight';  
+        if (Word  === 'Sheep')
+            $scope.hints = 'Bahhhh!'; 
+        if (Word  === 'Water buffalo')
+            $scope.hints = 'Veggie Tales song';  
+        if (Word  === 'Chicken')
+            $scope.hints = 'Everything tastes like';  
+        if (Word  === 'Duck')
+            $scope.hints = 'Quack';  
+        if (Word  === 'Goose')
+            $scope.hints = 'Surprisingly mean bird';  
+        if (Word  === 'Pigeon')
+            $scope.hints = 'Used to be used to carry letters';  
+        if (Word  === 'Ape')
+            $scope.hints = 'Almost human';  
+        if (Word  === 'Alligator')
+            $scope.hints = 'Bites';  
+        if (Word  === 'Ant')
+            $scope.hints = 'Industrious';  
+        if (Word  === 'Whale')
+            $scope.hints = 'Really really big ocean thing';  
+        if (Word  === 'Jellyfish')
+            $scope.hints = 'Stingy floating plastic bag thing';  
+            
+        console.log('Scope.hints: ' + $scope.hints);
     };
     
-    function guessLetterFromButton(guess) {
+
+    $scope.try = function(guess) {
+        guessLetter(guess);
+    };
+    
+    function guessLetter(guess) {
         guess.chosen = true;
         var found = false;
         _.each($scope.secretWord,
             function(letter) {
                 if (guess.name.toUpperCase() === letter.name.toUpperCase()) {
-                    letter.chosen = true;
-                    found = true;
-                }
-            });
-        if (!found) {
-            $scope.numMisses++;
-        }
-        checkForEndOfGame();
-    };
-    function guessLetterFromKey(guess) {        //made this function bc its 3AM and I'm tired and can't process the custom class here
-        guess.chosen = true;    
-        var found = false;
-        _.each($scope.secretWord,
-            function(letter) {
-                if (guess.toUpperCase() === letter.name.toUpperCase()) {
                     letter.chosen = true;
                     found = true;
                 }
