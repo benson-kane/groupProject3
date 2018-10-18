@@ -131,6 +131,7 @@ function hangmanController($scope) {
         $scope.numMisses = 0;
         $scope.win = false;
         $scope.lost = false;
+        $scope.hints = '';
     };
 
     $scope.reset();
