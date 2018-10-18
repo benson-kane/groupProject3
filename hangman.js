@@ -107,13 +107,15 @@ function hangmanController($scope) {
     };
 
     var checkForEndOfGame = function() {
-        $scope.win = _.reduce($scope.secretWord, function(acc, letter) {
-            return acc && letter.chosen;
-        }, true);
-
-        if (!$scope.win && $scope.numMisses >= $scope.missesAllowed) {
-            $scope.lost = true;
-            revealSecret();
+        if (!$scope.lost) {     //if we already lost, should stay lost untol reset
+            $scope.win = _.reduce($scope.secretWord, function(acc, letter) {
+                return acc && letter.chosen;
+            }, true);
+    
+            if (!$scope.win && $scope.numMisses >= $scope.missesAllowed) {
+                $scope.lost = true;
+                revealSecret();
+            }
         }
     }
 
